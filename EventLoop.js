@@ -15,20 +15,28 @@ Node.js 使用事件驱动模型，当web server接收到请求，就把它关�
 var events = require('events'); // 引入 events 模块
 var eventEmitter = new events.EventEmitter(); // 创建 eventEmitter 对象
 
-// 创建事件处理程序
-var connectHandler = function connected() {
-   console.log('连接成功。');
-   eventEmitter.emit('data_received');    // 触发 data_received 事件
-};
 
-eventEmitter.on('connection', connectHandler); // 绑定 connection 事件处理程序
-
-// 使用匿名函数绑定 data_received 事件
-eventEmitter.on('data_received', function(){
-   console.log('数据接收成功。');
+// 使用匿名函数绑定 data_received 事件（自定义事件名称）
+eventEmitter.on('data_received', function () {
+    console.log('数据接收成功。');
 });
 
-// 触发 connection 事件
-eventEmitter.emit('connection');
+// 1、创建事件处理程序
+var connectHandler = function connected() {
+    console.log('连接成功1');
+    eventEmitter.emit('data_received');    // 触发 data_received 事件
+};
+eventEmitter.on('connection', connectHandler); // 绑定 connection 事件处理程序
 
+///2、匿名函数方式 绑定 connection 事件处理程序
+eventEmitter.on('connection',function connected() {
+    console.log('连接成功2');
+    eventEmitter.emit('data_received');    // 触发 data_received 事件
+});
+
+
+eventEmitter.emit('connection'); // 触发 connection 事件
 console.log("程序执行完毕。");
+
+
+
