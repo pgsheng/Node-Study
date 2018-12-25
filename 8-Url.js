@@ -8,11 +8,12 @@
 var http = require("http");
 var url = require("url");
 
-function start() {
+function start(someFunction) {
     //  onRequest() 函数加上一些逻辑，用来找出浏览器请求的 URL 路径
     function onRequest(request, response) {
         var pathname = url.parse(request.url).pathname;
         console.log("Request for " + pathname + " received.");
+        someFunction(pathname);
         response.writeHead(200, {"Content-Type": "text/plain"});
         response.write("Hello World2");
         response.end();
@@ -21,9 +22,11 @@ function start() {
     http.createServer(onRequest).listen(8888);
     console.log("Server has started.");
 }
-exports.start = start;
+// exports.start = start;
 
 function route(pathname) {
 console.log("About to route a request for " + pathname);
 }
-exports.route = route;
+// exports.route = route;
+
+start(route);
