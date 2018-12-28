@@ -10,3 +10,17 @@ $ cnpm install body-parser --save   // 中间件，用于处理 JSON, Raw, Text 
 $ cnpm install cookie-parser --save // 解析Cookie的工具。req.cookies取到传过来的cookie，并把它们转成对象
 $ cnpm install multer --save // 中间件，用于处理 enctype="multipart/form-data" 的表单数据
 */
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+    console.log(req.hostname + '  ' + req.ip);
+    console.log(req.originalUrl + '  ' + req.path);
+    res.send('Hello World');
+});
+var server = app.listen({port:8888,host:'127.0.0.1'}, function () {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log("应用实例，访问地址为 http://%s:%s", host, port)
+});
+// 浏览器访问 http://127.0.0.1:8888
