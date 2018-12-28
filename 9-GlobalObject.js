@@ -37,7 +37,10 @@ process.on('exit', function (code) {
     }, 0);
     console.log('退出码为:', code);
 });
-console.log("程序执行结束");
+process.on('uncaughtException', (err) => {  // 捕捉全局异常
+    console.log(err);
+    console.log("捕捉到异常啦");
+});
 
 
 process.stdout.write("Hello World!" + "\n");  // 输出到终端
