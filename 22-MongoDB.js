@@ -1,0 +1,3 @@
+/*
+$ cnpm install mysql
+*/
