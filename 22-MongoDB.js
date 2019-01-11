@@ -3,7 +3,7 @@ mongodb 会自动创建数据库和集合，不需提前创建，插入数据时
 $ cnpm install mongodb
 */
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+var url = "mongodb://admin:123456@127.0.0.2:27017/testdb?authSource=admin";
 
 function create() {
     MongoClient.connect(url, {useNewUrlParser: true}, function (err, db) {
