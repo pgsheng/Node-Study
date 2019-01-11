@@ -18,6 +18,8 @@ function create() {
     });
 }
 
+//insert和save方法都可以插入数据，当默认的“_id”值已存在时，调用insert方法插入会报错；
+// 而save方法不会,会更新相同的_id所在行数据的信息
 function insert() {
     MongoClient.connect(url, {useNewUrlParser: true}, function (err, db) {
         if (err) throw err;
@@ -67,7 +69,7 @@ function update() {
 
         var whereStr = {"name": '菜鸟教程2'};  // 查询条件
         var updateStr = {$set: {"url": "https://www.runoob.com"}};
-        // update只修改匹配到第一条；OneupdateMany修改所有匹配到；psert=True不存在就插入，默认是False
+        // update只修改匹配到第一条； updateMany修改所有匹配到；psert=True不存在就插入，默认是False
         dbo.collection("site").updateOne(whereStr, updateStr, {upsert: true}, function (err, res) {
             if (err) throw err;
             console.log("文档更新成功");
@@ -142,9 +144,9 @@ function drop() {
 
 // create();
 // insert();
-// find();
+find();
 // update();
 // _delete();
 // sort();
 // lookup();
-drop();
+// drop();
