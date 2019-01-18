@@ -2,7 +2,11 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
+    "ee-first": "^1.1.1",
     "express": "^4.16.4",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "7.0.0",
     "multer": "^1.4.1"
   }
 }

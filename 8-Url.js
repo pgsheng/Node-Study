@@ -30,3 +30,5 @@ console.log("About to route a request for " + pathname);
 // exports.route = route;
 
 start(route);
+
+// 浏览器访问 http://127.0.0.1:8888

@@ -58,3 +58,4 @@ var server = app.listen({port: 8888, host: '127.0.0.1'}, function () {
     console.log("应用实例，访问地址为 http://%s:%s", host, port)
 });
 // 浏览器访问 http://127.0.0.1:8888/ + listUsers(addUser、1、deleteUser)
+// 浏览器访问 http://127.0.0.1:8888/2
