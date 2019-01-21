@@ -4,6 +4,7 @@
     "cookie-parser": "^1.4.3",
     "ee-first": "^1.1.1",
     "express": "^4.16.4",
+    "ioredis": "^4.5.1",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.0.0",
