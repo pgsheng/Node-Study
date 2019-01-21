@@ -1,3 +1,6 @@
+/**
+ * $ cnpm install ioredis --save
+ * */
 var Redis = require('ioredis');
 
 var client = new Redis({
