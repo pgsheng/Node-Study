@@ -1,0 +1,43 @@
+{
+  "appenders": [
+    {
+      "type": "console"
+    },
+    {
+      "type": "file",
+      "filename": "./logs/app_log.log",
+      "maxLogSize": 20480000,
+      "backups": 20,
+      "category": "app"
+    },
+    {
+      "type": "file",
+      "filename": "./logs/request_log.log",
+      "maxLogSize": 20480000,
+      "backups": 20,
+      "category": "request"
+    },
+    {
+      "type": "file",
+      "filename": "./logs/access_log.log",
+      "maxLogSize": 20480000,
+      "backups": 20,
+      "category": "access"
+    },
+    {
+      "category": "log_date",
+      "type": "dateFile",
+      "filename": "/logs/log_date",
+      "alwaysIncludePattern": true,
+      "pattern": "-yyyy-MM-dd.log"
+    }
+  ],
+  "replaceConsole": true,
+//  "levels": {
+//    "console": "ALL",
+//    "app": "ALL",
+//    "request": "ALL",
+//    "access": "ALL",
+//    "log_date": "ALL"
+//  }
+}

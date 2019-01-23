@@ -13,7 +13,7 @@ var logger = winston.createLogger({
         new winston.transports.File({filename: 'error.log', level: 'error'}),
         new winston.transports.File({filename: 'combined.log'}),
         // 添加控制台输出,非json格式输出
-        new winston.transports.Console({format: winston.format.simple()})
+        new winston.transports.Console({colorize: true,format: winston.format.simple()})
     ]
 });
 
@@ -46,3 +46,4 @@ var logger = winston.createLogger({
 
 
 logger.info('Hello distributed log files!');
+logger.error('Hello distributed log files!');
