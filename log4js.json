@@ -1,43 +1,73 @@
 {
-  "appenders": [
-    {
+  "appenders": {
+    "console": {
       "type": "console"
     },
-    {
+    "app": {
       "type": "file",
       "filename": "./logs/app_log.log",
       "maxLogSize": 20480000,
-      "backups": 20,
-      "category": "app"
+      "backups": 5
     },
-    {
+    "request": {
       "type": "file",
       "filename": "./logs/request_log.log",
       "maxLogSize": 20480000,
-      "backups": 20,
-      "category": "request"
+      "backups": 5
     },
-    {
+    "access": {
       "type": "file",
       "filename": "./logs/access_log.log",
       "maxLogSize": 20480000,
-      "backups": 20,
-      "category": "access"
+      "backups": 5
     },
-    {
-      "category": "log_date",
+    "error": {
+      "type": "file",
+      "filename": "./logs/error_log.log",
+      "maxLogSize": 20480000,
+      "backups": 5
+    },
+    "log_date": {
       "type": "dateFile",
       "filename": "/logs/log_date",
       "alwaysIncludePattern": true,
       "pattern": "-yyyy-MM-dd.log"
     }
-  ],
-  "replaceConsole": true,
-//  "levels": {
-//    "console": "ALL",
-//    "app": "ALL",
-//    "request": "ALL",
-//    "access": "ALL",
-//    "log_date": "ALL"
-//  }
+  },
+  "categories": {
+    "app": {
+      "appenders": [
+        "console",
+        "app"
+      ],
+      "level": "debug"
+    },
+    "default": {
+      "appenders": [
+        "console"
+      ],
+      "level": "debug"
+    },
+    "request": {
+      "appenders": [
+        "console",
+        "request"
+      ],
+      "level": "debug"
+    },
+    "access": {
+      "appenders": [
+        "console",
+        "access"
+      ],
+      "level": "debug"
+    },
+    "error": {
+      "appenders": [
+        "console",
+        "error"
+      ],
+      "level": "warn"
+    }
+  }
 }
