@@ -3,7 +3,8 @@ mongodb 会自动创建数据库和集合，不需提前创建，插入数据时
 $ cnpm install mongodb --save
 */
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://admin:123456@127.0.0.2:27017/testdb?authSource=admin";
+var url = "mongodb://admin:pgsheng123@127.0.0.2:27017/testdb?authSource=admin"; //本地数据库
+// var url = "mongodb://admin:pgsheng123@123.207.88.239:27017/testdb?authSource=admin"; // 腾讯云数据库
 
 function create() {
     MongoClient.connect(url, {useNewUrlParser: true}, function (err, db) {
@@ -53,7 +54,7 @@ function find() {
         // var whereStr = {"name": 'Google'};  // 查询条件
         var whereStr = {"name": {"$regex": "^G"}};  //正则表达式查询,第一个字母为 "G" 的数据
         // dbo.collection("site").find().limit(3).toArray(function (err, result) { // 分页，返回知道条数
-        dbo.collection("site").find().skip(1).toArray(function (err, result) { // 跳过前面几条数据
+        dbo.collection("site2").find().skip(1).toArray(function (err, result) { // 跳过前面几条数据
             // dbo.collection("site").find(whereStr).toArray(function (err, result) {
             if (err) throw err;
             console.log(result);
