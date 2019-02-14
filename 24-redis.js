@@ -33,7 +33,16 @@ function get() {
     });
 }
 
-// client.set('name', '112');
+client.set('name', '112');
 // client.setex('name', 15, '222');
 
 get();
+
+/**
+ 启动服务： redis-server.exe C:\AToolSofrware\Redis\redis.windows.conf
+查看是否成功： redis-cli
+输入密码验证才能使用：auth 12345
+关闭：redis-cli -a 12345 shutdown (没有密码不要-a)
+ net stop redis
+ net start redis
+ */
